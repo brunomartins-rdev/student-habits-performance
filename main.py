@@ -1,11 +1,21 @@
+from src.data_cleaner import Preprocessor
 from src.data_loader import DataLoader
 
 def main():
     # Load data
     student_data = DataLoader().load_raw_data('student-habits-performance.csv')
-    print(student_data.head())
 
     # Clean data
+    prep = Preprocessor(student_data)
+    print(prep.get_head())
+
+
+    # Save clean data
+    DataLoader().save_processed_data(prep.get_data())
+
+
+
+
 
     # Explore data
     

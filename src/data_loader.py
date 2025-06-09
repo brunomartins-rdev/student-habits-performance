@@ -10,11 +10,15 @@ class DataLoader:
         self.raw_path       = Path(raw_path)
         self.processed_path = Path(processed_path)
         self.sep            = sep
-        self.df             = None
 
     def load_raw_data(self, filename: str) -> pd.DataFrame:
         return pd.read_csv(self.raw_path / filename, sep=self.sep)
 
     def load_processed_data(self, filename: str) -> pd.DataFrame:
         return pd.read_csv(self.processed_path / filename, sep=self.sep)
+
+    def save_processed_data(self, 
+                            df: pd.DataFrame, 
+                            filename: str = 'clean_data') -> None:
+        df.to_csv(self.processed_path / filename, sep=self.sep)
 
