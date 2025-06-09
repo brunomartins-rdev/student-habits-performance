@@ -19,6 +19,6 @@ class DataLoader:
 
     def save_processed_data(self, 
                             df: pd.DataFrame, 
-                            filename: str = 'clean_data') -> None:
+                            filename: str = 'clean_data.csv') -> None:
         df.to_csv(self.processed_path / filename, sep=self.sep)
 
